@@ -1,4 +1,5 @@
 (function($) { 
+	console.log("totpjs is ok");
 	// When to show the scroll link
 	// higher number = scroll link appears further down the page   
 	var upperLimit = 1000;
