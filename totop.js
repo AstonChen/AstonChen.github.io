@@ -13,7 +13,7 @@
 	// Show and hide the scroll to top link based on scroll position   
 	scrollElem.hide();
 		console.log(12);     
-	$(document).scroll(function () {       
+	$(window).scroll(function () {       
 		console.log(113);     
 	});
 
