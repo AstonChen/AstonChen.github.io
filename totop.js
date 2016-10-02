@@ -14,7 +14,7 @@
 	scrollElem.hide();
 		console.log(1); 
 
-	$(document).scroll(function () {       
+	$(window).scroll(function () {       
 		alert(111);     
 		var scrollTop = $(document).scrollTop();   
 		console.log(scrollTop);    
