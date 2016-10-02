@@ -12,7 +12,7 @@
     // Show and hide the scroll to top link based on scroll position
     scrollElem.hide();
     $(window).scroll(function () {
-        alert(11);
+        scrollElem.show();
     });
 
     // Scroll to top animation on click
