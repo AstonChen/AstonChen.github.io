@@ -12,9 +12,19 @@
    
 	// Show and hide the scroll to top link based on scroll position   
 	scrollElem.hide();
-		console.log(12);     
-	$(window).scroll(function () {       
-		console.log(113);     
+		console.log(1); 
+		if(typeof jQuery == 'undefined'){
+			window.alert("没有jquery");
+		}    
+	$(document).scroll(function () {       
+		console.log(111);     
+		var scrollTop = $(document).scrollTop();   
+		console.log(scrollTop);    
+		if ( scrollTop > upperLimit ) {
+			$(scrollElem).stop().fadeTo(300, 1); // fade back in           
+		}else{       
+			$(scrollElem).stop().fadeTo(300, 0); // fade out
+		}
 	});
 
 	// Scroll to top animation on click
