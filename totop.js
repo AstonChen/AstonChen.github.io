@@ -12,7 +12,8 @@
    
 	// Show and hide the scroll to top link based on scroll position   
 	scrollElem.hide();
-	$(window).scroll(function () {            
+	$(window).scroll(function () {       
+		console.log(111);     
 		var scrollTop = $(document).scrollTop();   
 		console.log(scrollTop);    
 		if ( scrollTop > upperLimit ) {
