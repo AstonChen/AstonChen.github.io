@@ -13,13 +13,9 @@
 	// Show and hide the scroll to top link based on scroll position   
 	scrollElem.hide();
 		console.log(1); 
-		if(typeof jQuery == 'undefined'){
-			window.alert("没有jquery");
-		}else{
-			alert("Okkkk");
-		}    
+
 	$(document).scroll(function () {       
-		console.log(111);     
+		alert(111);     
 		var scrollTop = $(document).scrollTop();   
 		console.log(scrollTop);    
 		if ( scrollTop > upperLimit ) {
