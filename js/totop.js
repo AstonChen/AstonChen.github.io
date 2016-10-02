@@ -10,7 +10,7 @@
     var scrollSpeed = 1600;
 
     // Show and hide the scroll to top link based on scroll position
-    scrollElem.hide();
+    // scrollElem.hide();
     $(window).scroll(function () {
         var scrollTop = $(document).scrollTop();
         if ( scrollTop > upperLimit ) {
