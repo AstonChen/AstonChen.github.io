@@ -10,20 +10,13 @@
     var scrollSpeed = 1600;
 
     // Show and hide the scroll to top link based on scroll position
-    // scrollElem.hide();
+    scrollElem.hide();
     $(window).scroll(function () {
-        var scrollTop = $(document).scrollTop();
-        if ( scrollTop > upperLimit ) {
-            $(scrollElem).stop().fadeTo(300, 1); // fade back in
-        }else{
-            $(scrollElem).stop().fadeTo(300, 0); // fade out
-        }
+        alert(11);
     });
 
     // Scroll to top animation on click
     $(scrollElem).click(function(){
-        $("body").animate({
-                scrollTop: "0px"
-            }, "600")
+        $('html, body').animate({scrollTop:0}, scrollSpeed); return false;
     });
 })(jQuery);
