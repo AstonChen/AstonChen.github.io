@@ -15,6 +15,8 @@
 		console.log(1); 
 		if(typeof jQuery == 'undefined'){
 			window.alert("没有jquery");
+		}else{
+			alert("Okkkk");
 		}    
 	$(document).scroll(function () {       
 		console.log(111);     
