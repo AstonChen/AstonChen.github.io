@@ -17,6 +17,6 @@
 
     // Scroll to top animation on click
     $(scrollElem).click(function(){
-        $('div,.mid-col').animate({scrollTop:0}, scrollSpeed); return false;
+        $('.mid-col').animate({scrollTop:0}, scrollSpeed); return false;
     });
 })(jQuery);
