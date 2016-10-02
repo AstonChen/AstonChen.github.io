@@ -23,7 +23,7 @@
     // Scroll to top animation on click
     $(scrollElem).click(function(){
         // alert(11);
-        $('.mid-col').animate({scrollTop:0}, scrollSpeed); 
+        $('.article-inner').animate({scrollTop:0}, scrollSpeed); 
         return false;
     });
 })(jQuery);
