@@ -22,8 +22,8 @@
 
     // Scroll to top animation on click
     $(scrollElem).click(function(){
-        // alert(11);
-        $('.article-inner').animate({scrollTop:0}, scrollSpeed); 
-        return false;
+        $("body").animate({
+                scrollTop: "0px"
+            }, "600")
     });
 })(jQuery);
