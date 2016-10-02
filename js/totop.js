@@ -17,6 +17,6 @@
 
     // Scroll to top animation on click
     $(scrollElem).click(function(){
-        $('.article-type-post').animate({scrollTop:0}, scrollSpeed); return false;
+        $('.body-wrap').animate({scrollTop:0}, scrollSpeed); return false;
     });
 })(jQuery);
