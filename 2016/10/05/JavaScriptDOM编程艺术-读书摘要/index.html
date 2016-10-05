@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://yoursite.com/2016/10/05/JavaScriptDOM编程艺术-读书摘要/index.html">
 <meta property="og:site_name" content="陈走路的个人博客">
 <meta property="og:description" content="站在巨人的肩膀上">
-<meta property="og:updated_time" content="2016-10-05T05:16:49.000Z">
+<meta property="og:updated_time" content="2016-10-05T05:21:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScriptDOM编程艺术 读书摘要">
 <meta name="twitter:description" content="站在巨人的肩膀上">
@@ -158,18 +158,23 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>站在巨人的肩膀上</strong><br><a id="more"></a></p>
-<h3 id="node"><a href="#node" class="headerlink" title="node"></a>node</h3><ul>
+<h3 id="一、node"><a href="#一、node" class="headerlink" title="一、node"></a>一、node</h3><ul>
 <li><code>element node</code>:元素节点</li>
 <li><code>text node</code>:文本节点</li>
 <li><code>attribute node</code>:属性节点</li>
 </ul>
-<h3 id="获取-Element-Node："><a href="#获取-Element-Node：" class="headerlink" title="获取 Element Node："></a>获取 Element Node：</h3><ul>
+<h3 id="二、获取-Element-Node："><a href="#二、获取-Element-Node：" class="headerlink" title="二、获取 Element Node："></a>二、获取 Element Node：</h3><blockquote>
+<p><strong><em>下述3个方法不仅可以作用于<code>document</code>也可以作用于<code>element node</code>对象。即组合使用</em></strong></p>
+</blockquote>
+<ul>
 <li><code>document.getElementById(id)</code>:返回一个对象。</li>
 <li><code>document.getElementsByTagName(tag)</code>:返回一个数组。</li>
 <li><code>document.getElementsByClassName(class)</code>:返回一个数组。</li>
-<li><strong><em>上述3个方法不仅可以作用于<code>document</code>也可以作用于<code>element node</code>对象。即组合使用</em></strong>。</li>
 </ul>
-<h3 id="获取和设置-Attribute-Node："><a href="#获取和设置-Attribute-Node：" class="headerlink" title="获取和设置 Attribute Node："></a>获取和设置 Attribute Node：</h3><ul>
+<h3 id="三、获取和设置-Attribute-Node："><a href="#三、获取和设置-Attribute-Node：" class="headerlink" title="三、获取和设置 Attribute Node："></a>三、获取和设置 Attribute Node：</h3><blockquote>
+<p><strong><em>下述2个function仅仅能作用于元素节点对象（Object Of Element Node）</em></strong></p>
+</blockquote>
+<ul>
 <li><code>Object_Of_ElementNode.getAttribute(attribute)</code>:</li>
 <li><code>Object_Of_ElementNode.setAttribute(attribute,newValue)</code>:</li>
 </ul>
