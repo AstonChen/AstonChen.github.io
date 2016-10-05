@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://yoursite.com/2016/10/05/JavaScriptDOM编程艺术-读书摘要/index.html">
 <meta property="og:site_name" content="陈走路的个人博客">
 <meta property="og:description" content="站在巨人的肩膀上">
-<meta property="og:updated_time" content="2016-10-05T13:35:10.000Z">
+<meta property="og:updated_time" content="2016-10-05T17:06:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScriptDOM编程艺术 读书摘要">
 <meta name="twitter:description" content="站在巨人的肩膀上">
@@ -158,7 +158,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>站在巨人的肩膀上</strong><br><a id="more"></a></p>
-<h3 id="一、node"><a href="#一、node" class="headerlink" title="一、node"></a>一、node</h3><ul>
+<h3 id="一、Node"><a href="#一、Node" class="headerlink" title="一、Node"></a>一、Node</h3><ul>
 <li><code>element node</code>:元素节点</li>
 <li><code>text node</code>:文本节点</li>
 <li><code>attribute node</code>:属性节点</li>
@@ -171,22 +171,33 @@
 <li><code>document.getElementsByTagName(tag)</code>:返回一个数组。</li>
 <li><code>document.getElementsByClassName(class)</code>:返回一个数组。</li>
 </ul>
-<h3 id="获取-Element-Node-的子节点："><a href="#获取-Element-Node-的子节点：" class="headerlink" title="获取 Element Node 的子节点："></a>获取 Element Node 的子节点：</h3><ul>
-<li><code>Element_Object.childNodes</code>：返回全部子节点的数组。</li>
+<h3 id="三、获取-Element-Node-的子节点："><a href="#三、获取-Element-Node-的子节点：" class="headerlink" title="三、获取 Element Node 的子节点："></a>三、获取 Element Node 的子节点：</h3><ul>
+<li><code>Element_Node.childNodes</code>：返回全部子节点的数组。</li>
 <li><code>Node_Object.nodeType</code>:每个node都有一个nodeType属性。属性值有12种。</li>
 <li><code>1</code>表示<code>element node</code>，<code>2</code>表示<code>attribute node</code>，<code>3</code>表示<code>Text node</code>。。。</li>
-<li><code>Element_Object.firstChild</code>:返回第一个子节点。</li>
-<li><code>Element_Object.lastChild</code>:返回最后一个子节点。</li>
+<li><code>Element_Node.firstChild</code>:返回第一个子节点。</li>
+<li><code>Element_Node.lastChild</code>:返回最后一个子节点。</li>
 </ul>
-<h3 id="三、获取和设置-Attribute-Node："><a href="#三、获取和设置-Attribute-Node：" class="headerlink" title="三、获取和设置 Attribute Node："></a>三、获取和设置 Attribute Node：</h3><blockquote>
+<h3 id="四、获取和设置-Attribute-Node："><a href="#四、获取和设置-Attribute-Node：" class="headerlink" title="四、获取和设置 Attribute Node："></a>四、获取和设置 Attribute Node：</h3><blockquote>
 <p><strong><em>下述2个function仅仅能作用于元素节点对象（Object Of Element Node）</em></strong></p>
 </blockquote>
 <ul>
-<li><code>Element_Object.getAttribute(attribute)</code>:</li>
-<li><code>Element_Object.setAttribute(attribute,newValue)</code>:</li>
+<li><code>Element_Node.getAttribute(attribute)</code>:</li>
+<li><code>Element_Node.setAttribute(attribute,newValue)</code>:</li>
 </ul>
-<h3 id="获取、设置-Text-Node的值："><a href="#获取、设置-Text-Node的值：" class="headerlink" title="获取、设置 Text Node的值："></a>获取、设置 Text Node的值：</h3><ul>
-<li><code>var value = Element_Object.childNodes[0].nodeValue</code>:因为文本节点是包含在元素节点里面的，其实是元素节点的子节点。<code>value = &#39;new text..&#39;</code>就是重现赋值了。</li>
+<h3 id="五、获取、设置-Text-Node的值："><a href="#五、获取、设置-Text-Node的值：" class="headerlink" title="五、获取、设置 Text Node的值："></a>五、获取、设置 Text Node的值：</h3><ul>
+<li><code>var value = Element_Node.childNodes[0].nodeValue</code>:因为文本节点是包含在元素节点里面的，其实是元素节点的子节点。<code>value = &#39;new text..&#39;</code>就是重现赋值了。</li>
+<li><code>元素节点对象.nodeName</code>:获取元素节点名称。</li>
+<li><code>元素节点对象.nodeType</code>:获取元素节点类型1或2或3.。。。</li>
+</ul>
+<h3 id="六、创建标签："><a href="#六、创建标签：" class="headerlink" title="六、创建标签："></a>六、创建标签：</h3><ul>
+<li><code>document.write(&quot;&lt;p&gt;&lt;/p&gt;&quot;)</code>:不用了。</li>
+<li><code>Element_Node.innerHTML</code>: 用来获取和设置整段HTML代码。</li>
+<li><code>document.createElement(tag)</code>:创建Element Node。</li>
+<li><code>document.createTextNode(text)</code>:创建Text Node。</li>
+<li><code>parentElementNode.appendChild(Element_Node)</code>:把新元素节点插入到父元素节点的最后一个子元素后面。</li>
+<li><code>parentElement.insertBefore(newElement, targetElement)</code>：把新元素节点插入到目标节点的前面。其实<code>parentElement</code>就是<code>targetElement.parentNode</code>。</li>
+<li></li>
 </ul>
 
       
