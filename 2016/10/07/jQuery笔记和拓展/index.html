@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://yoursite.com/2016/10/07/jQuery笔记和拓展/index.html">
 <meta property="og:site_name" content="陈走路的个人博客">
 <meta property="og:description" content="牛逼的jQuery">
-<meta property="og:updated_time" content="2016-10-07T17:09:33.000Z">
+<meta property="og:updated_time" content="2016-10-07T17:40:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery笔记和拓展">
 <meta name="twitter:description" content="牛逼的jQuery">
@@ -328,29 +328,50 @@
 </ul>
 </li>
 </ul>
-<h3 id="三、事件、动画"><a href="#三、事件、动画" class="headerlink" title="三、事件、动画"></a>三、事件、动画</h3><h3 id="四、表单、表格"><a href="#四、表单、表格" class="headerlink" title="四、表单、表格"></a>四、表单、表格</h3><h3 id="五、Ajax的使用"><a href="#五、Ajax的使用" class="headerlink" title="五、Ajax的使用"></a>五、Ajax的使用</h3><h3 id="六、Validation表单验证"><a href="#六、Validation表单验证" class="headerlink" title="六、Validation表单验证"></a>六、Validation表单验证</h3><h3 id="七、Form表单插件"><a href="#七、Form表单插件" class="headerlink" title="七、Form表单插件"></a>七、Form表单插件</h3><h3 id="八、SimpleModal模态窗口插件"><a href="#八、SimpleModal模态窗口插件" class="headerlink" title="八、SimpleModal模态窗口插件"></a>八、SimpleModal模态窗口插件</h3><h3 id="九、Cookie插件"><a href="#九、Cookie插件" class="headerlink" title="九、Cookie插件"></a>九、Cookie插件</h3><h3 id="十、jQuery-UI插件"><a href="#十、jQuery-UI插件" class="headerlink" title="十、jQuery UI插件"></a>十、jQuery UI插件</h3><h3 id="十一、编写jQuery插件"><a href="#十一、编写jQuery插件" class="headerlink" title="十一、编写jQuery插件"></a>十一、编写jQuery插件</h3><h3 id="十二、PS："><a href="#十二、PS：" class="headerlink" title="十二、PS："></a>十二、PS：</h3><table>
+<h3 id="三、事件、动画"><a href="#三、事件、动画" class="headerlink" title="三、事件、动画"></a>三、事件、动画</h3><ul>
+<li>事件绑定：<ul>
+<li><code>bind( type [,data] ,func);</code><strong>type</strong>：第一个参数-事件类型：click、blur、focus、load、scroll、unload、dbclick、change、select、submit、error……</li>
+<li><code>bind(&quot;click&quot;, function(){...});</code>事件绑定可以简写成<code>click(function(){...})</code></li>
+</ul>
+</li>
+<li>合成事件：<ul>
+<li><code>hover(func1, func2);</code>鼠标移上去执行func1，离开执行func2.</li>
+<li><code>toggle(func1, func2, func3...);</code>第一次点击执行func1，第二次点击。。。。。执行到头再次从头开始。</li>
+</ul>
+</li>
+<li>事件冒泡：<strong>如果A内部嵌套了B，且都绑定了各自的点击事件，那么点击内部的B元素的同时会触发A、B绑定的2个事件</strong></li>
+<li>事件对象的属性：</li>
+<li>移除事件：</li>
+<li>模拟操作：</li>
+<li>其他用法：<h3 id="四、表单、表格"><a href="#四、表单、表格" class="headerlink" title="四、表单、表格"></a>四、表单、表格</h3><h3 id="五、Ajax的使用"><a href="#五、Ajax的使用" class="headerlink" title="五、Ajax的使用"></a>五、Ajax的使用</h3><h3 id="六、Validation表单验证"><a href="#六、Validation表单验证" class="headerlink" title="六、Validation表单验证"></a>六、Validation表单验证</h3><h3 id="七、Form表单插件"><a href="#七、Form表单插件" class="headerlink" title="七、Form表单插件"></a>七、Form表单插件</h3><h3 id="八、SimpleModal模态窗口插件"><a href="#八、SimpleModal模态窗口插件" class="headerlink" title="八、SimpleModal模态窗口插件"></a>八、SimpleModal模态窗口插件</h3><h3 id="九、Cookie插件"><a href="#九、Cookie插件" class="headerlink" title="九、Cookie插件"></a>九、Cookie插件</h3><h3 id="十、jQuery-UI插件"><a href="#十、jQuery-UI插件" class="headerlink" title="十、jQuery UI插件"></a>十、jQuery UI插件</h3><h3 id="十一、编写jQuery插件"><a href="#十一、编写jQuery插件" class="headerlink" title="十一、编写jQuery插件"></a>十一、编写jQuery插件</h3><h3 id="十二、PS："><a href="#十二、PS：" class="headerlink" title="十二、PS："></a>十二、PS：</h3></li>
+</ul>
+<table>
 <thead>
 <tr>
 <th>区别</th>
 <th><code>window.onload =</code></th>
 <th><code>$(document).ready(...);</code></th>
+<th>jQuery的<code>load()</code>方法</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>执行</td>
-<td>网页中所有内容包括图片加载完毕后才执行。</td>
+<td>网页中所有内容(包括图片)加载完毕后才执行。</td>
 <td>DOM绘制完毕就执行。</td>
+<td>load()方法会在元素的onload事件中绑定一个处理函数。</td>
 </tr>
 <tr>
 <td>绑定</td>
-<td>只能绑定一个方法，但是可以通过自定义方法绑定多个方法，麻烦</td>
+<td>只能绑定一个方法，<br>但是可以通过自定义方法绑定多个方法</td>
 <td>能同时编写多个。</td>
+<td>1.处理函数绑定给window对象，则所有内容（包括图片）加载完毕才触发。<br>2.处理函数绑定给某个元素的话，则改元素的全部内容（包括图片）加载完毕就触发。</td>
 </tr>
 <tr>
 <td>简写</td>
 <td>无</td>
 <td><code>$(document).ready(...);</code><br><code>$(function(){...});</code></td>
+<td><code>$(window).load(function(){...});</code><br><code>$(&quot;#test&quot;).load(function(){...});</code></td>
 </tr>
 </tbody>
 </table>
