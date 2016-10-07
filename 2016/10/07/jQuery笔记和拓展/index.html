@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://yoursite.com/2016/10/07/jQuery笔记和拓展/index.html">
 <meta property="og:site_name" content="陈走路的个人博客">
 <meta property="og:description" content="牛逼的jQuery">
-<meta property="og:updated_time" content="2016-10-07T13:05:16.000Z">
+<meta property="og:updated_time" content="2016-10-07T17:09:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery笔记和拓展">
 <meta name="twitter:description" content="牛逼的jQuery">
@@ -195,7 +195,7 @@
 <td><code>$(&quot;div:odd&quot;)</code>:选择所有索引为<strong>奇</strong>数的div。</td>
 </tr>
 <tr>
-<td><code>$(&quot;div:eq(2)&quot;)</code>:选择索引为2的div。</td>
+<td><code>$(&quot;div:eq(2)&quot;)</code>:选择索引为3的div。</td>
 <td><code>$(&quot;div:gt(2)&quot;)</code>:选择所有索引大于2的div。</td>
 </tr>
 <tr>
@@ -214,9 +214,121 @@
 <td><code>$(&quot;div:empty&quot;)</code>:选择子元素为空的div。</td>
 <td><code>$(&quot;div:parent&quot;)</code>:选择子元素不为空的div。</td>
 </tr>
+<tr>
+<td><code>$(&quot;:hidden&quot;)</code>:选择所有不可见元素。</td>
+<td><code>$(&quot;div:visible&quot;)</code>:选择所有可见的div元素。</td>
+</tr>
+<tr>
+<td><code>$(&quot;div[id]&quot;)</code>:选择有id的div。</td>
+<td><code>$(&quot;div[title=test]&quot;)</code>:选择title为test的div。</td>
+</tr>
+<tr>
+<td><code>$(&quot;div[title^=test]&quot;)</code>:选择title以test开头的div。</td>
+<td><code>$(&quot;div[$=test]&quot;)</code>:选择title以test结束的div。</td>
+</tr>
+<tr>
+<td><code>$(&quot;div[title*=test]&quot;)</code>:选择title含有test的div。</td>
+<td><code>$(&quot;div[title!=&quot;test&quot;]&quot;)</code>:选择title不等于test的div。</td>
+</tr>
+<tr>
+<td><code>$(&quot;div[title~=&quot;test&quot;]&quot;)</code>:选择title用空格分割的值中包含test的div。</td>
+<td><code>$(&quot;div[id][title=test]&quot;)</code>:选择有id且title为test的div。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>$(&quot;div.one :nth-child(2)&quot;)</code>:选择class为one的div下第二个子元素。</td>
+<td><code>$(&quot;div.one :first-child&quot;)</code>:选择class为one的div下第一个子元素。</td>
+</tr>
+<tr>
+<td><code>$(&quot;div.one :lash-child&quot;)</code>:选择class为one的div的最后一个子元素。</td>
+<td><code>$(&quot;div.one :only-child&quot;)</code>:如果class为one的div下只有一个子元素就选择这个。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<h3 id="二、DOM操作"><a href="#二、DOM操作" class="headerlink" title="二、DOM操作"></a>二、DOM操作</h3><h3 id="三、事件、动画"><a href="#三、事件、动画" class="headerlink" title="三、事件、动画"></a>三、事件、动画</h3><h3 id="四、表单、表格"><a href="#四、表单、表格" class="headerlink" title="四、表单、表格"></a>四、表单、表格</h3><h3 id="五、Ajax的使用"><a href="#五、Ajax的使用" class="headerlink" title="五、Ajax的使用"></a>五、Ajax的使用</h3><h3 id="六、Validation表单验证"><a href="#六、Validation表单验证" class="headerlink" title="六、Validation表单验证"></a>六、Validation表单验证</h3><h3 id="七、Form表单插件"><a href="#七、Form表单插件" class="headerlink" title="七、Form表单插件"></a>七、Form表单插件</h3><h3 id="八、SimpleModal模态窗口插件"><a href="#八、SimpleModal模态窗口插件" class="headerlink" title="八、SimpleModal模态窗口插件"></a>八、SimpleModal模态窗口插件</h3><h3 id="九、Cookie插件"><a href="#九、Cookie插件" class="headerlink" title="九、Cookie插件"></a>九、Cookie插件</h3><h3 id="十、jQuery-UI插件"><a href="#十、jQuery-UI插件" class="headerlink" title="十、jQuery UI插件"></a>十、jQuery UI插件</h3><h3 id="十一、编写jQuery插件"><a href="#十一、编写jQuery插件" class="headerlink" title="十一、编写jQuery插件"></a>十一、编写jQuery插件</h3><h3 id="十二、PS："><a href="#十二、PS：" class="headerlink" title="十二、PS："></a>十二、PS：</h3><table>
+<h3 id="二、DOM操作"><a href="#二、DOM操作" class="headerlink" title="二、DOM操作"></a>二、DOM操作</h3><ul>
+<li>查找：<ul>
+<li><code>$(&quot;div&quot;);</code></li>
+<li><code>$(&quot;div&quot;).attr(&quot;title&quot;);</code></li>
+<li><code>$(&quot;div&quot;).text();</code></li>
+<li><code>$(&quot;div&quot;).html();</code></li>
+</ul>
+</li>
+<li>创建：<ul>
+<li><code>$(&quot;&lt;div title=&#39;apple&#39;&gt;APPLE&lt;/div&gt;&quot;);</code>同时创建了Element、Text、Attribute Node，就是一个jQuery对象了。</li>
+</ul>
+</li>
+<li>插入：<ul>
+<li><code>$(&quot;p&quot;).append(jQuery对象或者HTML代码);</code>：插到后面。<code>appendTo()</code>、<code>prepend()</code>、<code>prependTo()</code>、<code>after()</code>、<code>insertAfter()</code>、<code>before()</code>、<code>insertBefore()</code>.</li>
+</ul>
+</li>
+<li>删除：<ul>
+<li><code>$(&quot;#test&quot;).remove([options]);</code>:删除节点以及后代。remove里面的参数可选，<strong>返回删除掉的节点，并且返回值可以继续使用,但是原来绑定的方法等就失效了</strong>。</li>
+<li><code>$(&quot;#test&quot;).detach();</code>:类似<code>remove()</code>。<strong>返回删除掉的节点，并且返回值可以继续使用,并且原来绑定的方法等还能使用</strong>。</li>
+<li><code>$(&quot;#test&quot;).empty();</code>：清空后代节点。</li>
+</ul>
+</li>
+<li>复制、克隆：<ul>
+<li><code>$(&quot;#test&quot;).clone([true]);</code>:复制节点，true表示同时复制该节点绑定的事件。</li>
+</ul>
+</li>
+<li>替换节点：<ul>
+<li><code>OldElement.replaceWith(NewValue)</code>、<code>replaceAll()</code>.</li>
+</ul>
+</li>
+<li>包裹节点：<ul>
+<li><code>$(&quot;p&quot;).wrap(&quot;&lt;div&gt;&lt;/div&gt;&quot;);</code>：用div包裹p。其他的：<code>wrapAll()</code>、<code>wrapInner()</code>.</li>
+</ul>
+</li>
+<li>属性操作：<ul>
+<li><code>$(&quot;p&quot;).attr(&quot;title&quot;);</code>获取.</li>
+<li><code>$(&quot;p&quot;).attr(&quot;title&quot;, newValue);</code>设置属性。</li>
+<li><code>$(&quot;p&quot;).attr({&quot;title&quot;:NewValue, &quot;name&quot;:NewValue});</code>同时设置多个。</li>
+<li><code>removeAttr(&quot;例如title&quot;);</code>删除属性。</li>
+</ul>
+</li>
+<li>样式操作：<ul>
+<li><code>addClass(&quot;NewClass&quot;);</code>追加Class。</li>
+<li><code>removeClass();</code>删除全部class。</li>
+<li><code>removeClass(&quot;class1 class2&quot;);</code>删除class1和class2。</li>
+<li><code>toggle();</code>交替两处代码。</li>
+<li><code>toggleClass(&quot;another&quot;);</code>切换class，有another则删除，没有则添加，可以用在click事件。</li>
+<li><code>hasClass(class1);</code>是否有某个class值，返回true或false。</li>
+</ul>
+</li>
+<li>设置、获取HTML、文本和值：<ul>
+<li><code>html();</code>获取HTML Code。</li>
+<li><code>html(HTML Code);</code>设置新的HTML Code。</li>
+<li><code>text();</code>获取Text。</li>
+<li><code>text(NewText);</code>设置新的Text。</li>
+<li><code>val();</code>获取文本框、单选框、下拉列表的值。</li>
+</ul>
+</li>
+<li>遍历节点：<ul>
+<li><code>children();</code>子元素集合。</li>
+<li><code>next();</code>紧邻的后面的同辈元素。</li>
+<li><code>prev();</code>紧邻的前面的同辈元素。</li>
+<li><code>siblings();</code>所有的同辈元素。</li>
+<li><code>parent();</code>、<code>parents();</code>、<code>closest();</code>、<code>find();</code>、<code>filter();</code>….</li>
+</ul>
+</li>
+<li>CSS-DOM操作：<ul>
+<li><code>css(&quot;color&quot;, &quot;red&quot;);</code></li>
+<li><code>css({&quot;color&quot;:&quot;red&quot;, &quot;size&quot;:&quot;19px&quot;});</code></li>
+<li><code>height([options]);</code>获取、设置新高度。</li>
+<li><code>offset();</code>获取、设置偏移。</li>
+<li><code>position();</code>相对偏移。</li>
+<li><code>scrollTop();</code>、<code>scrollLeft();</code>获取、设置滚动条顶部、左部距离。</li>
+</ul>
+</li>
+</ul>
+<h3 id="三、事件、动画"><a href="#三、事件、动画" class="headerlink" title="三、事件、动画"></a>三、事件、动画</h3><h3 id="四、表单、表格"><a href="#四、表单、表格" class="headerlink" title="四、表单、表格"></a>四、表单、表格</h3><h3 id="五、Ajax的使用"><a href="#五、Ajax的使用" class="headerlink" title="五、Ajax的使用"></a>五、Ajax的使用</h3><h3 id="六、Validation表单验证"><a href="#六、Validation表单验证" class="headerlink" title="六、Validation表单验证"></a>六、Validation表单验证</h3><h3 id="七、Form表单插件"><a href="#七、Form表单插件" class="headerlink" title="七、Form表单插件"></a>七、Form表单插件</h3><h3 id="八、SimpleModal模态窗口插件"><a href="#八、SimpleModal模态窗口插件" class="headerlink" title="八、SimpleModal模态窗口插件"></a>八、SimpleModal模态窗口插件</h3><h3 id="九、Cookie插件"><a href="#九、Cookie插件" class="headerlink" title="九、Cookie插件"></a>九、Cookie插件</h3><h3 id="十、jQuery-UI插件"><a href="#十、jQuery-UI插件" class="headerlink" title="十、jQuery UI插件"></a>十、jQuery UI插件</h3><h3 id="十一、编写jQuery插件"><a href="#十一、编写jQuery插件" class="headerlink" title="十一、编写jQuery插件"></a>十一、编写jQuery插件</h3><h3 id="十二、PS："><a href="#十二、PS：" class="headerlink" title="十二、PS："></a>十二、PS：</h3><table>
 <thead>
 <tr>
 <th>区别</th>
