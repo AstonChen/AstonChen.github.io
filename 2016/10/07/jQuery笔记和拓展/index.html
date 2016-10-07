@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://yoursite.com/2016/10/07/jQuery笔记和拓展/index.html">
 <meta property="og:site_name" content="陈走路的个人博客">
 <meta property="og:description" content="牛逼的jQuery">
-<meta property="og:updated_time" content="2016-10-07T12:50:33.000Z">
+<meta property="og:updated_time" content="2016-10-07T13:01:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery笔记和拓展">
 <meta name="twitter:description" content="牛逼的jQuery">
@@ -172,38 +172,38 @@
 </tr>
 <tr>
 <td><code>$(&quot;div &gt; span&quot;)</code>:选择div内为span的子元素。</td>
-<td><code>$(&quot;.one + div&quot;)</code>:选择class为one的下一个div同辈元素。</td>
+<td><code>$(&quot;.one + div&quot;)</code>:选择class为one的下一个div同辈元素。或者使用<code>$(&quot;.one&quot;).next(&quot;div)</code></td>
 </tr>
 <tr>
-<td><code>$(&quot;.one ~ div&quot;)</code>:选择class为one的元素后面所有div同辈元素。</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
+<td><code>$(&quot;.one ~ div&quot;)</code>:选择class为one的元素后面所有div同辈元素。或者使用<code>$(&quot;.one&quot;).nextAll(&quot;div&quot;)</code></td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
+<td><code>$(&quot;.one&quot;).siblings(&quot;div&quot;)</code>:获取class为one的所有同辈div元素，不分前后。</td>
 <td></td>
 </tr>
 <tr>
-<td></td>
+<td><code>$(&quot;div:first&quot;)</code>:获取所有div中第一个div。</td>
+<td><code>$(&quot;div:last&quot;)</code>:获取所有div中最后一个div。</td>
+</tr>
+<tr>
+<td><code>$(&quot;div:not(.one)&quot;)</code>:选择所有class不是one的div。</td>
 <td></td>
 </tr>
 <tr>
-<td></td>
+<td><code>$(&quot;div:even&quot;)</code>:选择所有索引为<strong>偶</strong>数的div。</td>
+<td><code>$(&quot;div:odd&quot;)</code>:选择所有索引为<strong>奇</strong>数的div。</td>
+</tr>
+<tr>
+<td><code>$(&quot;div:eq(2)&quot;)</code>:选择索引为2的div。</td>
+<td><code>$(&quot;div:gt(2)&quot;)</code>:选择所有索引大于2的div。</td>
+</tr>
+<tr>
+<td><code>$(&quot;div:lt(2)&quot;)</code>:选择所有索引小于2的div。</td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
+<td><code>$(&quot;:focus&quot;)</code>:选择当前获取焦点的元素。</td>
 <td></td>
 </tr>
 </tbody>
