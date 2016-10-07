@@ -137,6 +137,99 @@
       <div class="body-wrap">
         
   
+    <article id="post-jQuery笔记和拓展" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/07/jQuery笔记和拓展/">jQuery笔记和拓展</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、选择器"><a href="#一、选择器" class="headerlink" title="一、选择器"></a>一、选择器</h3><h3 id="二、DOM操作"><a href="#二、DOM操作" class="headerlink" title="二、DOM操作"></a>二、DOM操作</h3><h3 id="三、事件、动画"><a href="#三、事件、动画" class="headerlink" title="三、事件、动画"></a>三、事件、动画</h3><h3 id="四、表单、表格"><a href="#四、表单、表格" class="headerlink" title="四、表单、表格"></a>四、表单、表格</h3><h3 id="五、Ajax的使用"><a href="#五、Ajax的使用" class="headerlink" title="五、Ajax的使用"></a>五、Ajax的使用</h3><h3 id="六、Validation表单验证"><a href="#六、Validation表单验证" class="headerlink" title="六、Validation表单验证"></a>六、Validation表单验证</h3><h3 id="七、Form表单插件"><a href="#七、Form表单插件" class="headerlink" title="七、Form表单插件"></a>七、Form表单插件</h3><h3 id="八、SimpleModal模态窗口插件"><a href="#八、SimpleModal模态窗口插件" class="headerlink" title="八、SimpleModal模态窗口插件"></a>八、SimpleModal模态窗口插件</h3><h3 id="九、Cookie插件"><a href="#九、Cookie插件" class="headerlink" title="九、Cookie插件"></a>九、Cookie插件</h3><h3 id="十、jQuery-UI插件"><a href="#十、jQuery-UI插件" class="headerlink" title="十、jQuery UI插件"></a>十、jQuery UI插件</h3><h3 id="十一、编写jQuery插件"><a href="#十一、编写jQuery插件" class="headerlink" title="十一、编写jQuery插件"></a>十一、编写jQuery插件</h3><h3 id="十二、PS："><a href="#十二、PS：" class="headerlink" title="十二、PS："></a>十二、PS：</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>区别</th>
+<th><code>window.onload =</code></th>
+<th><code>$(document).ready(...);</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>执行</td>
+<td>网页中所有内容包括图片加载完毕后才执行。</td>
+<td>DOM绘制完毕就执行。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>绑定</td>
+<td>只能绑定一个方法，但是可以通过自定义方法绑定多个方法，麻烦</td>
+<td>能同时编写多个。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>简写</td>
+<td>无</td>
+<td><code>$(document).ready(...);</code><br><code>$(function(){...});</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>jQuery–&gt;DOM：jQuery对象其实是一个类似数组的对象，获取某个元素就是DOM对象。使用下标或者<code>get()</code>方法。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> $idd = $(<span class="string">"#idd"</span>); <span class="comment">//jQuery是一个类似数组的对象</span></div><div class="line">$idd[<span class="number">0</span>]; <span class="comment">//DOM对象</span></div><div class="line">$idd.get(<span class="number">0</span>); <span class="comment">//DOM对象</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>DOM–&gt;jQuery：使用<code>$(DOM对象);</code>就是jQuery对象了。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> iddd = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'iddd'</span>);</div><div class="line">$(iddd); <span class="comment">//jQuery对象。</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/07/jQuery笔记和拓展/" class="archive-article-date">
+  	<time datetime="2016-10-07T09:19:28.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-07</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+	</div>
+
+      
+
+      <p class="article-more-link">
+        <a  href="/2016/10/07/jQuery笔记和拓展/#more">more >></a>
+      </p>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-修炼爱情" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -565,7 +658,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/blogs/" style="font-size: 10px;">blogs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/爱情/" style="font-size: 10px;">爱情</a>
+    				<a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/blogs/" style="font-size: 10px;">blogs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 20px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/爱情/" style="font-size: 10px;">爱情</a>
     			</div>
     	</section>
     
