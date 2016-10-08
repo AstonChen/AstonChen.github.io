@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://yoursite.com/2016/10/07/jQuery笔记和拓展/index.html">
 <meta property="og:site_name" content="陈走路的个人博客">
 <meta property="og:description" content="牛逼的jQuery">
-<meta property="og:updated_time" content="2016-10-08T01:56:52.000Z">
+<meta property="og:updated_time" content="2016-10-08T03:40:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery笔记和拓展">
 <meta name="twitter:description" content="牛逼的jQuery">
@@ -329,12 +329,16 @@
 </li>
 </ul>
 <h3 id="三、事件、动画"><a href="#三、事件、动画" class="headerlink" title="三、事件、动画"></a>三、事件、动画</h3><ul>
-<li>事件绑定：<ul>
+<li><p>事件绑定：</p>
+<ul>
 <li><code>bind( type [,data] ,func);</code><strong>type</strong>：第一个参数-事件类型：click、blur、focus、load、scroll、unload、dbclick、change、select、submit、error……</li>
-<li><code>bind(&quot;click&quot;, function(){...});</code>事件绑定可以简写成<code>click(function(){...})</code></li>
+<li><p><code>bind(&quot;click&quot;, function(){...});</code>事件绑定可以简写成<code>click(function(){...})</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">bind( <span class="string">"click"</span> ,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;....&#125;); <span class="comment">//绑定匿名函数,简单。</span></div><div class="line">bind( <span class="string">"click"</span> ,myFunc = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;....&#125;); <span class="comment">//给匿名函数指定一个变量。以后可以用来unbind。</span></div><div class="line">unbind( <span class="string">"click"</span>, myFunc); <span class="comment">//点击一下，接触绑定的myFunc。</span></div><div class="line"></div><div class="line">bind( <span class="string">"click"</span> ,yourFunc); <span class="comment">//绑定一个正常的函数，必须是函数名，不能有();</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">yourFunc</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	....</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
-<li>合成事件：<ul>
+<li><p>合成事件：</p>
+<ul>
 <li><code>hover(func1, func2);</code>鼠标移上去执行func1，离开执行func2.</li>
 <li><code>toggle(func1, func2, func3...);</code>第一次点击执行func1，第二次点击。。。。。执行到头再次从头开始。</li>
 </ul>
@@ -358,11 +362,30 @@
 <li><code>event.stopPropagation();</code>阻止事件冒泡。</li>
 </ul>
 </li>
-<li>移除事件：</li>
-<li>模拟操作：</li>
-<li>其他用法：<h3 id="四、表单、表格"><a href="#四、表单、表格" class="headerlink" title="四、表单、表格"></a>四、表单、表格</h3><h3 id="五、Ajax的使用"><a href="#五、Ajax的使用" class="headerlink" title="五、Ajax的使用"></a>五、Ajax的使用</h3><h3 id="六、Validation表单验证"><a href="#六、Validation表单验证" class="headerlink" title="六、Validation表单验证"></a>六、Validation表单验证</h3><h3 id="七、Form表单插件"><a href="#七、Form表单插件" class="headerlink" title="七、Form表单插件"></a>七、Form表单插件</h3><h3 id="八、SimpleModal模态窗口插件"><a href="#八、SimpleModal模态窗口插件" class="headerlink" title="八、SimpleModal模态窗口插件"></a>八、SimpleModal模态窗口插件</h3><h3 id="九、Cookie插件"><a href="#九、Cookie插件" class="headerlink" title="九、Cookie插件"></a>九、Cookie插件</h3><h3 id="十、jQuery-UI插件"><a href="#十、jQuery-UI插件" class="headerlink" title="十、jQuery UI插件"></a>十、jQuery UI插件</h3><h3 id="十一、编写jQuery插件"><a href="#十一、编写jQuery插件" class="headerlink" title="十一、编写jQuery插件"></a>十一、编写jQuery插件</h3><h3 id="十二、PS："><a href="#十二、PS：" class="headerlink" title="十二、PS："></a>十二、PS：</h3></li>
+<li>移除已经绑定的事件：<ul>
+<li><code>unbind(type [,func]);</code>type是要移除的type事件（例如click），func是要移除的处理函数。没有参数则是移除所有绑定的事件（例如click等）。对于匿名函数，要先给匿名函数指定一个函数变量名。</li>
+<li><code>one(&quot;click&quot;, function(){...});</code>绑定的事件只处理一次。</li>
 </ul>
-<table>
+</li>
+<li>模拟操作：<ul>
+<li><code>Element.trigger(&quot;click&quot;);</code>或者简写成<code>Element.click();</code>加载完毕就执行click事件，<strong>这行代码写在事件绑定的下面，不然不起作用。</strong></li>
+</ul>
+</li>
+<li>其他用法：<ul>
+<li><code>bind(&quot;mouseover mouseout&quot;,function(){ $(this).toggleClass(&quot;test&quot;)});</code>来回切换。绑定多个事件类型。</li>
+</ul>
+</li>
+<li>动画：<ul>
+<li><code>show();</code></li>
+<li><code>hide();</code></li>
+<li><code>css(&quot;display&quot;, &quot;none&quot;);</code></li>
+<li><code>fadeIn();</code>,<code>fadeOut();</code>改变透明度。</li>
+<li><code>slideUp();</code>,<code>slideDown();</code>改变高度。</li>
+<li><code>animate(params, speed, callback);</code>更紧致的动画。</li>
+</ul>
+</li>
+</ul>
+<h3 id="四、表单、表格"><a href="#四、表单、表格" class="headerlink" title="四、表单、表格"></a>四、表单、表格</h3><h3 id="五、Ajax的使用"><a href="#五、Ajax的使用" class="headerlink" title="五、Ajax的使用"></a>五、Ajax的使用</h3><h3 id="六、Validation表单验证"><a href="#六、Validation表单验证" class="headerlink" title="六、Validation表单验证"></a>六、Validation表单验证</h3><h3 id="七、Form表单插件"><a href="#七、Form表单插件" class="headerlink" title="七、Form表单插件"></a>七、Form表单插件</h3><h3 id="八、SimpleModal模态窗口插件"><a href="#八、SimpleModal模态窗口插件" class="headerlink" title="八、SimpleModal模态窗口插件"></a>八、SimpleModal模态窗口插件</h3><h3 id="九、Cookie插件"><a href="#九、Cookie插件" class="headerlink" title="九、Cookie插件"></a>九、Cookie插件</h3><h3 id="十、jQuery-UI插件"><a href="#十、jQuery-UI插件" class="headerlink" title="十、jQuery UI插件"></a>十、jQuery UI插件</h3><h3 id="十一、编写jQuery插件"><a href="#十一、编写jQuery插件" class="headerlink" title="十一、编写jQuery插件"></a>十一、编写jQuery插件</h3><h3 id="十二、PS："><a href="#十二、PS：" class="headerlink" title="十二、PS："></a>十二、PS：</h3><table>
 <thead>
 <tr>
 <th>区别</th>
