@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://yoursite.com/2016/10/07/jQuery笔记和拓展/index.html">
 <meta property="og:site_name" content="陈走路的个人博客">
 <meta property="og:description" content="牛逼的jQuery">
-<meta property="og:updated_time" content="2016-10-08T01:46:23.000Z">
+<meta property="og:updated_time" content="2016-10-08T01:56:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery笔记和拓展">
 <meta name="twitter:description" content="牛逼的jQuery">
@@ -346,7 +346,17 @@
 </li>
 </ul>
 </li>
-<li><p>事件对象的属性：</p>
+<li><p>事件对象的其他方法和属性：</p>
+<ul>
+<li><code>event.type;</code>获取事件类型，click，mouseover等。</li>
+<li><code>event.target;</code>获取触发事件的元素。</li>
+<li><code>event.relatedTarget;</code><strong>相关元素（什么鬼？？？？？？）</strong></li>
+<li><code>event.pageX;</code>、<code>event.pageY;</code>光标相对页面的x、y坐标。</li>
+<li><code>event.which;</code><strong>获取鼠标的左、中、右键，分别是1、2、3。</strong></li>
+<li><code>event.metaKay;</code><strong>键盘（用的时候再看吧！！！）</strong></li>
+<li><code>event.preventDefault();</code>阻止默认行为。</li>
+<li><code>event.stopPropagation();</code>阻止事件冒泡。</li>
+</ul>
 </li>
 <li>移除事件：</li>
 <li>模拟操作：</li>
