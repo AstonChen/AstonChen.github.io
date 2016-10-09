@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://yoursite.com/2016/10/07/jQuery笔记和拓展/index.html">
 <meta property="og:site_name" content="陈走路的个人博客">
 <meta property="og:description" content="牛逼的jQuery">
-<meta property="og:updated_time" content="2016-10-08T15:04:03.000Z">
+<meta property="og:updated_time" content="2016-10-09T03:19:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery笔记和拓展">
 <meta name="twitter:description" content="牛逼的jQuery">
@@ -393,7 +393,20 @@
 <li><code>attr(&#39;checked&#39;,true);</code>选中</li>
 <li><code>Element.checked;</code>选中为true否则为false。</li>
 </ul>
-<h3 id="五、Ajax的使用"><a href="#五、Ajax的使用" class="headerlink" title="五、Ajax的使用"></a>五、Ajax的使用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Load(), 通常用来获取</span></div><div class="line">$(<span class="string">"#resText"</span>).load(<span class="string">'test.html'</span>); <span class="comment">//载入test.html的内容在id=resText的后面。</span></div><div class="line">$(<span class="string">"#resText"</span>).load(<span class="string">'test.html'</span>, &#123;<span class="attr">name</span>:<span class="string">"chenjian"</span>, <span class="attr">age</span>:<span class="number">26</span>&#125;); <span class="comment">//有参数则是POST方式提交，没有参数就是GET方式提交。</span></div><div class="line">$(<span class="string">"#resText"</span>).load(<span class="string">"test.html"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">responseText, textStatus, XMLHttpRequest</span>)</span>&#123;</div><div class="line">	<span class="comment">// responseText;请求返回的内容。</span></div><div class="line">	<span class="comment">// textStatus;请求状态：success、error、timeout、notmodified 4种。</span></div><div class="line">	<span class="comment">// XMLHttpRequest; XMLHttpRequest对象。</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="五、Ajax的使用"><a href="#五、Ajax的使用" class="headerlink" title="五、Ajax的使用"></a>五、Ajax的使用</h3><ul>
+<li><p><code>load(url [,data] [,func]);</code> <strong>一般用来获取静态的数据文件</strong>。</p>
+<p>  参数 | 类型 | 说明<br>  ——- | ——-| ——-<br>  <code>url</code> | String|请求的HTML链接<br>  <code>data</code>(可选)|Object|有参数则是POST方式，没有参数则是GET方式。<br>  <code>func</code>(可选)|Function有3个参数|完成时的回调函数，无论成功失败都执行。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#resText"</span>).load(<span class="string">'test.html'</span>); <span class="comment">//载入test.html的内容在id=resText的后面。</span></div><div class="line">$(<span class="string">"#resText"</span>).load(<span class="string">'test.html'</span>, &#123;<span class="attr">name</span>:<span class="string">"chenjian"</span>, <span class="attr">age</span>:<span class="number">26</span>&#125;); <span class="comment">//有参数则是POST方式提交，没有参数就是GET方式提交。</span></div><div class="line">$(<span class="string">"#resText"</span>).load(<span class="string">"test.html"</span> , <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span>(<span class="params">responseText, textStatus, XMLHttpRequest</span>)</span>&#123;<span class="comment">// responseText;请求返回的内容。</span></div><div class="line">	<span class="comment">// textStatus;请求状态：success、error、timeout、notmodified 4种。</span></div><div class="line">	<span class="comment">// XMLHttpRequest; XMLHttpRequest对象。&#125;</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>$.get(url [,data] [,callback] [,type]);</code></p>
+<p>  参数 | 类型 | 说明<br>  ——- | ——-| ——-<br>  <code>url</code> | String|请求的url。<br>  <code>data</code>(可选)|Object|key-value的键值对。<br>  <code>callback</code>(可选)|Function|当Response返回success时候才会执行的回调函数。<br>有两个参数<code>data</code>返回的数据，<code>textStatus</code>请求返回的状态。<br>  <code>type</code>(可选)|String|服务器返回的数据类型，xml、html、script、json、text、_default。</p>
+<ul>
+<li><code>$.post();</code>类似<code>$.get();</code></li>
+<li><code>$.getScript(&#39;tets.js&#39;,function(){...});</code>动态加载js文件，有回调函数。</li>
+<li><code>$.getJSON(&#39;test.json&#39;, function(data){...});</code>用来获取json并且执行回调函数。可以用<code>$.each(data [,callback]);</code>来遍历对象和数组。</li>
+</ul>
+</li>
+</ul>
 <h3 id="六、Validation表单验证"><a href="#六、Validation表单验证" class="headerlink" title="六、Validation表单验证"></a>六、Validation表单验证</h3><h3 id="七、Form表单插件"><a href="#七、Form表单插件" class="headerlink" title="七、Form表单插件"></a>七、Form表单插件</h3><h3 id="八、SimpleModal模态窗口插件"><a href="#八、SimpleModal模态窗口插件" class="headerlink" title="八、SimpleModal模态窗口插件"></a>八、SimpleModal模态窗口插件</h3><h3 id="九、Cookie插件"><a href="#九、Cookie插件" class="headerlink" title="九、Cookie插件"></a>九、Cookie插件</h3><h3 id="十、jQuery-UI插件"><a href="#十、jQuery-UI插件" class="headerlink" title="十、jQuery UI插件"></a>十、jQuery UI插件</h3><h3 id="十一、编写jQuery插件"><a href="#十一、编写jQuery插件" class="headerlink" title="十一、编写jQuery插件"></a>十一、编写jQuery插件</h3><h3 id="十二、PS："><a href="#十二、PS：" class="headerlink" title="十二、PS："></a>十二、PS：</h3><table>
 <thead>
 <tr>
