@@ -147,7 +147,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/14/JavaScript中的小问题/">JavaScript中NULL与undefined的区别</a>
+      <a class="article-title" href="/2016/10/14/JavaScript中的小问题/">JavaScript中的小问题</a>
     </h1>
   
 
@@ -155,14 +155,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>区别<br>
-        
+        <h3 id="NULL与undefined的区别："><a href="#NULL与undefined的区别：" class="headerlink" title="NULL与undefined的区别："></a>NULL与undefined的区别：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="literal">null</span>;</div><div class="line"><span class="keyword">var</span> b=<span class="literal">undefined</span>;</div><div class="line"><span class="keyword">var</span> c;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(c); <span class="comment">// undefined</span></div><div class="line"></div><div class="line">a == b; <span class="comment">//true</span></div><div class="line">a === b; <span class="comment">//false</span></div><div class="line"></div><div class="line"><span class="keyword">if</span>(a); <span class="comment">//false</span></div><div class="line"><span class="keyword">if</span>(b); <span class="comment">//false</span></div><div class="line"></div><div class="line"><span class="number">5</span> + <span class="literal">null</span>; <span class="comment">//5, null转换为数字是0。</span></div><div class="line"><span class="number">5</span> + <span class="literal">undefined</span>; <span class="comment">//NaN，undefined转换为数字是NaN。</span></div></pre></td></tr></table></figure>
+<h4 id="总结使用："><a href="#总结使用：" class="headerlink" title="总结使用："></a>总结使用：</h4><ul>
+<li>NULL为没有对象。</li>
+<li>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。<ul>
+<li>（1）变量被声明了，但没有赋值时，就等于undefined。</li>
+<li>（2) 调用函数时，应该提供的参数没有提供，该参数等于undefined。</li>
+<li>（3）对象没有赋值的属性，该属性的值为undefined。</li>
+<li>（4）函数没有返回值时，默认返回undefined。</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     <div class="article-info article-info-index">
       
       <a href="/2016/10/14/JavaScript中的小问题/" class="archive-article-date">
-  	<time datetime="2016-10-14T14:36:07.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
+  	<time datetime="2016-10-14T15:02:14.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
 </a>
       
 	<div class="article-tag tagcloud">

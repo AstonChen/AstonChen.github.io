@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>JavaScript中NULL与undefined的区别 | 陈走路的个人博客</title>
+  <title>JavaScript中的小问题 | 陈走路的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="区别">
+  <meta name="description" content="NULL与undefined的区别：1234567891011121314var a=null;var b=undefined;var c;console.log(c); // undefineda == b; //truea === b; //falseif(a); //falseif(b); //false5 + null; //5, null转换为数字是0。5 + undefined; //">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript中NULL与undefined的区别">
+<meta property="og:title" content="JavaScript中的小问题">
 <meta property="og:url" content="https://yoursite.com/2016/10/14/JavaScript中的小问题/index.html">
 <meta property="og:site_name" content="陈走路的个人博客">
-<meta property="og:description" content="区别">
-<meta property="og:updated_time" content="2016-10-14T14:44:47.000Z">
+<meta property="og:description" content="NULL与undefined的区别：1234567891011121314var a=null;var b=undefined;var c;console.log(c); // undefineda == b; //truea === b; //falseif(a); //falseif(b); //false5 + null; //5, null转换为数字是0。5 + undefined; //">
+<meta property="og:updated_time" content="2016-10-14T15:04:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript中NULL与undefined的区别">
-<meta name="twitter:description" content="区别">
+<meta name="twitter:title" content="JavaScript中的小问题">
+<meta name="twitter:description" content="NULL与undefined的区别：1234567891011121314var a=null;var b=undefined;var c;console.log(c); // undefineda == b; //truea === b; //falseif(a); //falseif(b); //false5 + null; //5, null转换为数字是0。5 + undefined; //">
   
     <link rel="alternative" href="/atom.xml" title="陈走路的个人博客" type="application/atom+xml">
   
@@ -149,7 +149,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript中NULL与undefined的区别
+      JavaScript中的小问题
     </h1>
   
 
@@ -157,8 +157,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>区别<br><a id="more"></a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="literal">null</span>;</div><div class="line"><span class="keyword">var</span> b=<span class="literal">undefined</span>;</div><div class="line"><span class="keyword">var</span> c;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(c); <span class="comment">// undefined</span></div><div class="line"></div><div class="line">a == b; <span class="comment">//true</span></div><div class="line">a === b; <span class="comment">//false</span></div><div class="line"></div><div class="line"><span class="keyword">if</span>(a); <span class="comment">//false</span></div><div class="line"><span class="keyword">if</span>(b); <span class="comment">//false</span></div><div class="line"></div><div class="line"><span class="number">5</span> + <span class="literal">null</span>; <span class="comment">//5, null转换为数字是0。</span></div><div class="line"><span class="number">5</span> + <span class="literal">undefined</span>; <span class="comment">//NaN，undefined转换为数字是NaN。</span></div></pre></td></tr></table></figure>
+        <h3 id="NULL与undefined的区别："><a href="#NULL与undefined的区别：" class="headerlink" title="NULL与undefined的区别："></a>NULL与undefined的区别：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="literal">null</span>;</div><div class="line"><span class="keyword">var</span> b=<span class="literal">undefined</span>;</div><div class="line"><span class="keyword">var</span> c;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(c); <span class="comment">// undefined</span></div><div class="line"></div><div class="line">a == b; <span class="comment">//true</span></div><div class="line">a === b; <span class="comment">//false</span></div><div class="line"></div><div class="line"><span class="keyword">if</span>(a); <span class="comment">//false</span></div><div class="line"><span class="keyword">if</span>(b); <span class="comment">//false</span></div><div class="line"></div><div class="line"><span class="number">5</span> + <span class="literal">null</span>; <span class="comment">//5, null转换为数字是0。</span></div><div class="line"><span class="number">5</span> + <span class="literal">undefined</span>; <span class="comment">//NaN，undefined转换为数字是NaN。</span></div></pre></td></tr></table></figure>
 <h4 id="总结使用："><a href="#总结使用：" class="headerlink" title="总结使用："></a>总结使用：</h4><ul>
 <li>NULL为没有对象。</li>
 <li>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。<ul>
@@ -175,7 +174,7 @@
     <div class="article-info article-info-index">
       
       <a href="/2016/10/14/JavaScript中的小问题/" class="archive-article-date">
-  	<time datetime="2016-10-14T14:36:07.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
+  	<time datetime="2016-10-14T15:02:14.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
 </a>
       
 	<div class="article-tag tagcloud">
