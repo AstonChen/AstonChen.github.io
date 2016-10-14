@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>JavaScript中的小问题 | 陈走路的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="NULL与undefined的区别：1234567891011121314var a=null;var b=undefined;var c;console.log(c); // undefineda == b; //truea === b; //falseif(a); //falseif(b); //false5 + null; //5, null转换为数字是0。5 + undefined; //">
+  <meta name="description" content="JavaScript中的小问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript中的小问题">
 <meta property="og:url" content="https://yoursite.com/2016/10/14/JavaScript中的小问题/index.html">
 <meta property="og:site_name" content="陈走路的个人博客">
-<meta property="og:description" content="NULL与undefined的区别：1234567891011121314var a=null;var b=undefined;var c;console.log(c); // undefineda == b; //truea === b; //falseif(a); //falseif(b); //false5 + null; //5, null转换为数字是0。5 + undefined; //">
-<meta property="og:updated_time" content="2016-10-14T15:04:43.000Z">
+<meta property="og:description" content="JavaScript中的小问题">
+<meta property="og:updated_time" content="2016-10-14T15:12:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript中的小问题">
-<meta name="twitter:description" content="NULL与undefined的区别：1234567891011121314var a=null;var b=undefined;var c;console.log(c); // undefineda == b; //truea === b; //falseif(a); //falseif(b); //false5 + null; //5, null转换为数字是0。5 + undefined; //">
+<meta name="twitter:description" content="JavaScript中的小问题">
   
     <link rel="alternative" href="/atom.xml" title="陈走路的个人博客" type="application/atom+xml">
   
@@ -157,8 +157,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="NULL与undefined的区别："><a href="#NULL与undefined的区别：" class="headerlink" title="NULL与undefined的区别："></a>NULL与undefined的区别：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="literal">null</span>;</div><div class="line"><span class="keyword">var</span> b=<span class="literal">undefined</span>;</div><div class="line"><span class="keyword">var</span> c;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(c); <span class="comment">// undefined</span></div><div class="line"></div><div class="line">a == b; <span class="comment">//true</span></div><div class="line">a === b; <span class="comment">//false</span></div><div class="line"></div><div class="line"><span class="keyword">if</span>(a); <span class="comment">//false</span></div><div class="line"><span class="keyword">if</span>(b); <span class="comment">//false</span></div><div class="line"></div><div class="line"><span class="number">5</span> + <span class="literal">null</span>; <span class="comment">//5, null转换为数字是0。</span></div><div class="line"><span class="number">5</span> + <span class="literal">undefined</span>; <span class="comment">//NaN，undefined转换为数字是NaN。</span></div></pre></td></tr></table></figure>
-<h4 id="总结使用："><a href="#总结使用：" class="headerlink" title="总结使用："></a>总结使用：</h4><ul>
+        <p>JavaScript中的小问题<br><a id="more"></a></p>
+<h3 id="一、NULL与undefined的区别："><a href="#一、NULL与undefined的区别：" class="headerlink" title="一、NULL与undefined的区别："></a>一、NULL与undefined的区别：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="literal">null</span>;</div><div class="line"><span class="keyword">var</span> b=<span class="literal">undefined</span>;</div><div class="line"><span class="keyword">var</span> c;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(c); <span class="comment">// undefined</span></div><div class="line"></div><div class="line">a == b; <span class="comment">//true</span></div><div class="line">a === b; <span class="comment">//false</span></div><div class="line"></div><div class="line"><span class="keyword">if</span>(a); <span class="comment">//false</span></div><div class="line"><span class="keyword">if</span>(b); <span class="comment">//false</span></div><div class="line"></div><div class="line"><span class="number">5</span> + <span class="literal">null</span>; <span class="comment">//5, null转换为数字是0。</span></div><div class="line"><span class="number">5</span> + <span class="literal">undefined</span>; <span class="comment">//NaN，undefined转换为数字是NaN。</span></div></pre></td></tr></table></figure>
+<ul>
 <li>NULL为没有对象。</li>
 <li>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。<ul>
 <li>（1）变量被声明了，但没有赋值时，就等于undefined。</li>
@@ -168,6 +169,8 @@
 </ul>
 </li>
 </ul>
+<h3 id="二、非字符串类型和字符串相加前自动转换为字符串"><a href="#二、非字符串类型和字符串相加前自动转换为字符串" class="headerlink" title="二、非字符串类型和字符串相加前自动转换为字符串"></a>二、非字符串类型和字符串相加前自动转换为字符串</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="string">'chen'</span>;</div><div class="line"><span class="built_in">console</span>.log(a+<span class="number">5</span>); <span class="comment">//chen5</span></div></pre></td></tr></table></figure>
+<h3 id="三、使用-访问变量："><a href="#三、使用-访问变量：" class="headerlink" title="三、使用 访问变量："></a>三、使用<code> </code>访问变量：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'chenjian'</span>;</div><div class="line"><span class="keyword">var</span> hi = <span class="string">`hi, <span class="subst">$&#123;name&#125;</span>`</span>;</div><div class="line"><span class="built_in">console</span>.log(hi); <span class="comment">//hi, chenjian</span></div></pre></td></tr></table></figure>
 
       
     </div>
