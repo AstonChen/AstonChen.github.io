@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://yoursite.com/2016/10/14/JavaScript中的小问题/index.html">
 <meta property="og:site_name" content="陈走路的个人博客">
 <meta property="og:description" content="JavaScript中的小问题">
-<meta property="og:updated_time" content="2016-10-15T08:55:04.000Z">
+<meta property="og:updated_time" content="2016-10-17T04:28:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript中的小问题">
 <meta name="twitter:description" content="JavaScript中的小问题">
@@ -183,6 +183,38 @@
 </li>
 <li><p>iterable类型有个牛逼的内置的forEach方法，它接收一个函数，每次迭代就自动回调该函数。</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">element,index,array</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(element);</div><div class="line">    <span class="built_in">console</span>.log(index);</div><div class="line">    <span class="built_in">console</span>.log(array);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">m.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value,key,map</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(value);</div><div class="line">    <span class="built_in">console</span>.log(key);</div><div class="line">    <span class="built_in">console</span>.log(map);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">s.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value,samevalue,set</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(value);</div><div class="line">    <span class="built_in">console</span>.log(samevalue);</div><div class="line">    <span class="built_in">console</span>.log(set);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="七、var和let"><a href="#七、var和let" class="headerlink" title="七、var和let"></a>七、<code>var</code>和<code>let</code></h3><blockquote>
+<p>与PHP不同，func内可以访问外部的variable变量。<br>变量提升。<br><code>let</code>声明的是一个块级作用域的变量。<br><code>var PI = 3.14;</code>常量的声明。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</div><div class="line">    pass</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(i); <span class="comment">//i为6</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</div><div class="line">    pass</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(i); <span class="comment">//i is not defined</span></div></pre></td></tr></table></figure>
+<h3 id="八、关于this："><a href="#八、关于this：" class="headerlink" title="八、关于this："></a>八、关于<code>this</code>：</h3><blockquote>
+<p>对于对象的函数，可以先用<code>var that=this;</code>捕获this。<br>使用<code>apply</code>指定<code>this</code>指向的对象。</p>
+</blockquote>
+<ul>
+<li><code>func.apply(想将func指明的对象,参数组成的array);</code></li>
+<li><code>func.call(想将func指明的对象,参数按序排列);</code></li>
+<li><code>apply</code>,<code>call</code>用处详解。</li>
+</ul>
+<h3 id="九、闭包："><a href="#九、闭包：" class="headerlink" title="九、闭包："></a>九、闭包：</h3><blockquote>
+<p>返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量。如果一定要引用循环变量怎么办？方法是再创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变：</p>
+</blockquote>
+<h3 id="十、正则表达式："><a href="#十、正则表达式：" class="headerlink" title="十、正则表达式："></a>十、正则表达式：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> re1 = <span class="regexp">/ABC\-001/</span>;</div><div class="line"><span class="keyword">var</span> re2 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'ABC\\-001'</span>); <span class="comment">//由于转义\\表示一个\。</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> str = <span class="string">'010-12345'</span>;</div><div class="line">re1.test(str); <span class="comment">//测试是否符合</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$/</span>; <span class="comment">//分组</span></div><div class="line">re.exec(<span class="string">'010-12345'</span>); <span class="comment">// ['010-12345', '010', '12345']</span></div></pre></td></tr></table></figure>
+<h3 id="十一、JSON"><a href="#十一、JSON" class="headerlink" title="十一、JSON"></a>十一、JSON</h3><blockquote>
+<p>键也必须用双引号””。</p>
+</blockquote>
+<ul>
+<li>JSON.stringify(object);</li>
+</ul>
+<h3 id="十二、对象"><a href="#十二、对象" class="headerlink" title="十二、对象"></a>十二、对象</h3><ul>
+<li><code>xiaoming.__proto__ = Student;</code> 给xiaoming对象改变一个对象的原型。不建议使用，有的浏览器不支持。</li>
+<li><code>var xiaoming = Object.create(Student);</code>创建一个对象原型是Student的xiaoming对象。</li>
+<li><ol>
+<li><p><strong>构造函数</strong>创建对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name,age</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> xiaoming = <span class="keyword">new</span> Student(<span class="string">'xiaoming'</span>,<span class="number">26</span>);</div><div class="line"><span class="built_in">console</span>.log(xiaoming.name); <span class="comment">//xiaoming就是一个对象了。</span></div><div class="line"><span class="built_in">console</span>.log(xiaoming.constructor === Student); <span class="comment">//true,此法得到的xiaoming对象有个constructor属性，指向构造函数(Student)本身。</span></div><div class="line"><span class="built_in">console</span>.log(Student.prototype.constructor === Student); <span class="comment">//true.</span></div><div class="line"><span class="built_in">console</span>.log(chenjian.constructor === Student.prototype.constructor); <span class="comment">//true</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
 </li>
 </ul>
 
