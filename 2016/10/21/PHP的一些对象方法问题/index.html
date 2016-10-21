@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>PHP的一些对象方法问题 | 陈走路的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="延迟绑定、克隆对象、抽象类、重载、自动调用、迭代器与迭代、类转字符串、Reflection。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP的一些对象方法问题">
+<meta property="og:url" content="https://yoursite.com/2016/10/21/PHP的一些对象方法问题/index.html">
+<meta property="og:site_name" content="陈走路的个人博客">
+<meta property="og:description" content="延迟绑定、克隆对象、抽象类、重载、自动调用、迭代器与迭代、类转字符串、Reflection。">
+<meta property="og:updated_time" content="2016-10-21T13:23:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP的一些对象方法问题">
+<meta name="twitter:description" content="延迟绑定、克隆对象、抽象类、重载、自动调用、迭代器与迭代、类转字符串、Reflection。">
+  
+    <link rel="alternative" href="/atom.xml" title="陈走路的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="///astonchen.github.io/img/Batman.ico">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/WechatIMG55.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">ChenJian</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">予我食乎，君子也 ----&lt;hr&gt;-- Horse</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">所有文章</a></li>
+	        
+				<li><a href="/tags/PHP">PHP</a></li>
+	        
+				<li><a href="/tags/JavaScript">JavaScript</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/AstonChen" title="github">github</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">ChenJian</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/img/WechatIMG55.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">ChenJian</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">予我食乎，君子也 ----&lt;hr&gt;-- Horse</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/PHP">PHP</a></li>
+		        
+					<li><a href="/tags/JavaScript">JavaScript</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/AstonChen" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-PHP的一些对象方法问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP的一些对象方法问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>延迟绑定、克隆对象、抽象类、重载、自动调用、迭代器与迭代、类转字符串、Reflection。<br><a id="more"></a></p>
+<h3 id="一、静态属性和方法："><a href="#一、静态属性和方法：" class="headerlink" title="一、静态属性和方法："></a>一、静态属性和方法：</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> $name = <span class="string">'CJ'</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Hi, "</span>.<span class="keyword">self</span>::$name;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">echo</span> A::$name; <span class="comment">//'CJ'</span></div><div class="line"><span class="keyword">echo</span> A::say(); <span class="comment">//"Hi, CJ"</span></div><div class="line"><span class="comment">//1.不用实例就可以调用了。2.静态方法中不能使用`$this`，因为没有实例化，所以`$this`指向不了对象。3.</span></div></pre></td></tr></table></figure>
+<h3 id="二、延迟绑定：为了解决"><a href="#二、延迟绑定：为了解决" class="headerlink" title="二、延迟绑定：为了解决"></a>二、延迟绑定：为了解决</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">__CLASS__</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span>::who();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">__CLASS__</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">echo</span> B::test(); <span class="comment">//A, 得到的是父类。</span></div><div class="line"></div><div class="line"><span class="comment">// 如果：test()里面的方法如下：</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">static</span>::who();</div><div class="line">&#125;</div><div class="line"><span class="comment">// 那么`B::test();`的结果是B。 这里使用静态延迟绑定。</span></div></pre></td></tr></table></figure>
+<h3 id="三、克隆对象："><a href="#三、克隆对象：" class="headerlink" title="三、克隆对象："></a>三、克隆对象：</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$b = <span class="keyword">clone</span> $a; <span class="comment">//克隆了$a实例的同时，也复制了相同的属性和方法。两个实例直接不搭嘎。</span></div><div class="line"></div><div class="line"><span class="comment">//基类中创建一个`__clone()`方法，调用clone 的话就会先调用`__clone()`方法确定想要复制的内容，类似于构造函数。</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="keyword">public</span> $name;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($name)</span></span>&#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;name = $name;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__clone</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;name = <span class="string">"无名"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">$a = <span class="keyword">new</span> A(<span class="string">"小A"</span>);</div><div class="line">$b = <span class="keyword">clone</span> $a;</div><div class="line"></div><div class="line"><span class="keyword">echo</span> $a-&gt;name; <span class="comment">//"小A"</span></div><div class="line"><span class="keyword">echo</span> $b-&gt;name; <span class="comment">//"无名"</span></div></pre></td></tr></table></figure>
+<h3 id="四、抽象类："><a href="#四、抽象类：" class="headerlink" title="四、抽象类："></a>四、抽象类：</h3><ul>
+<li>抽象类不能被实例化,但是可以被继承。</li>
+<li>类中如果有抽象方法，那么这个类一定要是抽象类。</li>
+<li>抽象方法只声明调用方式（参数），不需要定义具体功能。</li>
+<li>继承一个抽象类的时候，子类必须定义父类中的所有<strong>抽象</strong>方法；</li>
+<li>这些方法的访问控制(public, protect, private)必须和父类中一样（或者更为宽松）;</li>
+<li>类似于供应商，你继承的话，里面的抽象方法必须使用，其他的可以不使用。接口的话，你要是继承的话，里面的东西你必须全部都要用。</li>
+</ul>
+<h3 id="五、重载-call-："><a href="#五、重载-call-：" class="headerlink" title="五、重载__call()："></a>五、重载<code>__call()</code>：</h3><ul>
+<li>调用不存在的func时候，会触发这个函数。</li>
+<li>__call(\$func_name, $param_array);接收2个参数，一个方法名，一个参数数组。</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">__call</span><span class="params">($func, $params)</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"没有这个函数啊。"</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$a = <span class="keyword">new</span> A();</div><div class="line"><span class="keyword">echo</span> $a-&gt;say(); <span class="comment">//"没有这个函数啊。"</span></div></pre></td></tr></table></figure>
+<h3 id="六、自动调用-autoload-："><a href="#六、自动调用-autoload-：" class="headerlink" title="六、自动调用__autoload()："></a>六、自动调用<code>__autoload()</code>：</h3><ul>
+<li>Class外部声明的一个方法。</li>
+<li>你如果实例化一个没有的类，他就调用咯。</li>
+<li>参数为你想要调用的类名;</li>
+<li>用途：当没有这个Class的话，就是调用<code>__autoload()</code>方法把要的class文件引入进来。 牛逼的，哈哈哈😄。</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">__autoload</span><span class="params">($classname)</span></span>&#123;</div><div class="line">	<span class="comment">// echo '没有这个类啊。';</span></div><div class="line">	<span class="keyword">require_once</span>($classname.<span class="string">".php"</span>);</div><div class="line">&#125;</div><div class="line">$a = <span class="keyword">new</span> A(); <span class="comment">//报错：Fatal error: Class 'A' not found in /Applications/MAMP/htdocs/_project/__autoload.php on line 5。</span></div></pre></td></tr></table></figure>
+<h3 id="七、迭代器与迭代："><a href="#七、迭代器与迭代：" class="headerlink" title="七、迭代器与迭代："></a>七、迭代器与迭代：</h3><p><strong>好好看看吧</strong></p>
+<h3 id="八、类转换成字符串-toString-："><a href="#八、类转换成字符串-toString-：" class="headerlink" title="八、类转换成字符串__toString()："></a>八、类转换成字符串<code>__toString()</code>：</h3><ul>
+<li>当你想echo一个实例等话，默认的时候会出错,</li>
+<li>基类内定义一个<code>__toString()</code>，当用户echo的时候就可以调用啦。</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">	<span class="keyword">public</span> $name = <span class="string">'CJ'</span>;</div><div class="line"></div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__toString</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"做些什么尼！"</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">$a = <span class="keyword">new</span> A();</div><div class="line"><span class="keyword">echo</span> $a; <span class="comment">//做些什么尼！</span></div></pre></td></tr></table></figure>
+<h3 id="九：Reflection："><a href="#九：Reflection：" class="headerlink" title="九：Reflection："></a>九：Reflection：</h3><ul>
+<li>原来查看文档不详的class;</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$class = <span class="keyword">new</span> ReflectionClass(<span class="string">"ClassName"</span>);</div><div class="line">var_dump($class);</div></pre></td></tr></table></figure>
+<h3 id="十、异常处理："><a href="#十、异常处理：" class="headerlink" title="十、异常处理："></a>十、异常处理：</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Exception</span>(<span class="string">"错误信息！"</span>, <span class="number">999</span>);</div><div class="line">&#125; <span class="keyword">catch</span> (<span class="keyword">Exception</span> $e) &#123;</div><div class="line">	<span class="keyword">echo</span> <span class="string">"Error Code: &#123;$e-&gt;getCode()&#125;, Error Message : &#123;$e-&gt;getMessage()&#125;, Error File : &#123;$e-&gt;getFile()&#125;, Error Line : &#123;$e-&gt;getLine()&#125;"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//输出：Error Code: 999, Error Message : 错误信息！, Error File : /Applications/MAMP/htdocs/_project/exception.php, Error Line : 3</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/21/PHP的一些对象方法问题/" class="archive-article-date">
+  	<time datetime="2016-10-21T03:14:23.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-21</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OOP/">OOP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/对象/">对象</a></li></ul>
+	</div>
+
+      
+
+      <p class="article-more-link">
+        <a  href="/2016/10/21/PHP的一些对象方法问题/#more">more >></a>
+      </p>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/10/18/PHP相关知识点/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PHP相关知识点</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<div class="share_addthis share_jia">
+  <div class="sharing addthis_toolbox share">
+  	<span class="jiathis_txt">Share to: &nbsp; </span>
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 ChenJian
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	};
+</script>
+
+<script src="/./main.js"></script>
+
+
+<div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/blogs/" style="font-size: 10px;">blogs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/爱情/" style="font-size: 10px;">爱情</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.w3school.com.cn/php/php_ref.asp">PHP手册</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.w3school.com.cn/h.asp">HTML手册</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.w3school.com.cn/b.asp">JavaScript</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.w3school.com.cn/jquery">jQuery手册</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">予我食乎，君子也 ----- Horse</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
